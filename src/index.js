@@ -1,27 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "gestalt/dist/gestalt.css";
 
+import App from "./components/App";
+import Navbar from "./components/Navbar";
+import Signin from "./components/Signin";
+import Signup from "./components/Signup";
+import Checkout from "./components/Checkout";
 
-import App from './components/App';
-import SignIn from './components/SignIn';
-import SignUp from './components/SignUp';
-import Checkout from './components/Checkout';
-
-import registerServiceWorker from './registerServiceWorker';
-
+import registerServiceWorker from "./registerServiceWorker";
 
 const Root = () => (
-    <Router>
-        <Switch>
-            <Route component={App} path="/" />
-            <Route component={SignIn} path="/signin" />
-            <Route component={SignUp} path="/signup" />
-            <Route component={Checkout} path="/checkout" />
-        </Switch>
-    </Router>
-)
+  <Router>
+    <React.Fragment>
+      <Navbar />
+      <Switch>
+        <Route component={App} exact path="/" />
+        <Route component={Signin} path="/signin" />
+        <Route component={Signup} path="/signup" />
+        <Route component={Checkout} path="/checkout" />
+      </Switch>
+    </React.Fragment>
+  </Router>
+);
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Root />, document.getElementById("root"));
 registerServiceWorker();
+
+if (module.hot) {
+  module.hot.accept();
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SignIn extends React.Component {
+class Signin extends React.Component {
     render() {
         return (
             <div>Sign In</div>
@@ -8,4 +8,4 @@ class SignIn extends React.Component {
     }
 }
 
-export default SignIn;
+export default Signin;
